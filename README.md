@@ -103,6 +103,9 @@ Command sent succesfully: "update player 1337hashoftheuser 0"
 
 ## Docker
 
+- Server is running with the image name `openrct2-cli`
+- We run the cli also by docker with url `ghcr.io/brammittendorff/openrct2-admin-cli:main`
+
 To run this in docker and if you run the openrct2-cli also in docker you can use the pushed docker image:
 
 ```bash
