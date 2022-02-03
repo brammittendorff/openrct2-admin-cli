@@ -3,21 +3,35 @@
 const { GameServer } = require('./gameserver.js');
 const yargs = require('yargs');
 
-const myGameServer = new GameServer();
-
 const argv = yargs
     .command('details', 'This will get the details of your park')
     .command('users', 'This will get the uesrs of your park')
     .command('groups', 'This will get the groups of your park')
     .command('run', 'This will run the command you enter', {
         command: {
-            description: 'Run the following command',
             alias: 'c',
-            type: 'string'
+            description: 'Run the following command',
+            type: 'string',
         }
+    })
+    .option("n", {
+        alias: "hostname",
+        describe: "A hostname to overrule 127.0.0.1",
+        type: 'string',
     })
     .help()
     .alias('help', 'h').argv;
+
+let server = {
+    hostname: '127.0.0.1'
+};
+if (argv.hostname) {
+    server = {
+        hostname: argv.hostname
+    };
+}
+
+const myGameServer = new GameServer(server);
 
 if (argv._.includes('details')) {
     myGameServer.getDetails().then(function (results) {

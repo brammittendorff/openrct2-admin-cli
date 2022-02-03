@@ -7,6 +7,7 @@ const REMOTEPORT = 35711;
 
 class GameServer {
     constructor(server = {}) {
+        console.log(server.hostname);
         this._name = server.name || 'server';
         this._group = server.group || 'default';
         this._mode = server.gamemode || 'multiplayer';

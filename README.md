@@ -40,8 +40,9 @@ Commands:
   main.js run      This will run the command you enter
 
 Options:
-      --version  Show version number                                   [boolean]
-  -h, --help     Show help                                             [boolean]
+      --version   Show version number                                  [boolean]
+  -n, --hostname  A hostname to overrule 127.0.0.1                      [string]
+  -h, --help      Show help                                            [boolean]
 ```
 
 ### View users
