@@ -100,3 +100,11 @@ This could result in:
 ```bash
 Command sent succesfully: "update player 1337hashoftheuser 0"
 ```
+
+## Docker
+
+To run this in docker and if you run the openrct2-cli also in docker you can use the pushed docker image:
+
+```bash
+ docker run -it ghcr.io/brammittendorff/openrct2-admin-cli:main ./main.js -n $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps | grep openrct2-cli | awk '{print $1}')) run -c 'say hi'
+```
