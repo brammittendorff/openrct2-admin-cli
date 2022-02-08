@@ -14,7 +14,7 @@ For the installation procedure please read the [readme](https://github.com/CoryS
 Run this admin cli by your terminal you first need to build it.
 
 ```bash
-docker build -t openrct2-admin-cli .   
+docker build -t openrct2-admin-cli . 
 ```
 
 
@@ -25,19 +25,19 @@ docker build -t openrct2-admin-cli .
 To run this image remember you will need the `host` network settings so to run this you can execute:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest ./main.js --help
+docker run -it --network host openrct2-admin-cli:latest cli.js --help
 ```
 
 This will result in:
 
 ```bash
-main.js [command]
+cli.js [command]
 
 Commands:
-  main.js details  This will get the details of your park
-  main.js users    This will get the uesrs of your park
-  main.js groups   This will get the groups of your park
-  main.js run      This will run the command you enter
+  cli.js details  This will get the details of your park
+  cli.js users    This will get the uesrs of your park
+  cli.js groups   This will get the groups of your park
+  cli.js run      This will run the command you enter
 
 Options:
       --version   Show version number                                  [boolean]
@@ -50,7 +50,7 @@ Options:
 To view the users you can run:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest ./main.js users
+docker run -it --network host openrct2-admin-cli:latest cli.js users
 ```
 
 This could result in:
@@ -74,7 +74,7 @@ This could result in:
 To view the groups you can run:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest ./main.js groups
+docker run -it --network host openrct2-admin-cli:latest cli.js groups
 ```
 
 This could result in:
@@ -92,7 +92,7 @@ This could result in:
 Remember in the view groups section the admin group id was `0` so with the hash of the user and the admin id you can execute the following command:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest ./main.js run -c "update player 1337hashoftheuser 0"
+docker run -it --network host openrct2-admin-cli:latest cli.js run -c "update player 1337hashoftheuser 0"
 ```
 
 This could result in:
@@ -109,5 +109,5 @@ Command sent succesfully: "update player 1337hashoftheuser 0"
 To run this in docker and if you run the openrct2-cli also in docker you can use the pushed docker image:
 
 ```bash
- docker run -it ghcr.io/brammittendorff/openrct2-admin-cli:main ./main.js -n $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps | grep openrct2-cli | awk '{print $1}')) run -c 'say hi'
+ docker run -it ghcr.io/brammittendorff/openrct2-admin-cli:main cli.js -n $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps | grep openrct2-cli | awk '{print $1}')) run -c 'say hi'
 ```

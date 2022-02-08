@@ -1,14 +1,13 @@
 {
-  "name": "gameserver",
+  "name": "openrct2-admin-cli",
   "version": "1.0.1",
   "description": "",
   "main": "main.js",
-  "scripts": {
-    "start": "node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Bram Mittendorff",
   "license": "MIT",
+  "bin": {
+    "openrct2-admin-cli": "./cli.js"
+  },
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
