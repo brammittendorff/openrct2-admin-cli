@@ -2,21 +2,11 @@
 
 We had the problem that we maintained many linux servers and we could not remotely execute commands to becomse admin. So we created a CLI to maintain servers for OpenRCT2 with the minimum effort.
 
-## Installation
+## Prerequisites
 
-You can use this application when you install the [openrct2-remote-control](https://github.com/CorySanin/openrct2-remote-control) plugin in the `plugins` directory.
+You can use this application when you install the [openrct2-remote-control](https://github.com/CorySanin/openrct2-remote-control) plugin in the `plugins` directory on your server.
 
 For the installation procedure please read the [readme](https://github.com/CorySanin/openrct2-remote-control/blob/master/README.md) file of that project.
-
-
-## Building the image
-
-Run this admin cli by your terminal you first need to build it.
-
-```bash
-docker build -t openrct2-admin-cli . 
-```
-
 
 ## Usage
 
@@ -25,7 +15,7 @@ docker build -t openrct2-admin-cli .
 To run this image remember you will need the `host` network settings so to run this you can execute:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest cli.js --help
+docker run -it ghcr.io/brammittendorff/openrct2-admin-cli:latest cli.js --help
 ```
 
 This will result in:
@@ -35,7 +25,7 @@ cli.js [command]
 
 Commands:
   cli.js details  This will get the details of your park
-  cli.js users    This will get the uesrs of your park
+  cli.js users    This will get the users of your park
   cli.js groups   This will get the groups of your park
   cli.js run      This will run the command you enter
 
@@ -50,7 +40,7 @@ Options:
 To view the users you can run:
 
 ```bash
-docker run -it --network host openrct2-admin-cli:latest cli.js users
+docker run -it --network host ghcr.io/brammittendorff/openrct2-admin-cli:latest cli.js users
 ```
 
 This could result in:
@@ -103,10 +93,10 @@ Command sent succesfully: "update player 1337hashoftheuser 0"
 
 ## Docker
 
-- Server is running with the image name `openrct2-cli`
+- Server is running with the image name `openrct2-admin-cli`
 - We run the cli also by docker with url `ghcr.io/brammittendorff/openrct2-admin-cli:main`
 
-To run this in docker and if you run the openrct2-cli also in docker you can use the pushed docker image:
+To run this in docker and if you run the openrct2-admin-cli also in docker you can use the pushed docker image:
 
 ```bash
  docker run -it ghcr.io/brammittendorff/openrct2-admin-cli:main cli.js -n $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps | grep openrct2-cli | awk '{print $1}')) run -c 'say hi'

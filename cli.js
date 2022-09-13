@@ -5,7 +5,7 @@ const yargs = require('yargs');
 
 const argv = yargs
     .command('details', 'This will get the details of your park')
-    .command('users', 'This will get the uesrs of your park')
+    .command('users', 'This will get the users of your park')
     .command('groups', 'This will get the groups of your park')
     .command('run', 'This will run the command you enter', {
         command: {
